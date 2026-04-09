@@ -1,7 +1,91 @@
-        body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;line-height:1.4;margin:0;padding:0}
-        header,nav,main,section,footer{padding:1rem}
-        nav ul{display:flex;gap:.75rem;list-style:none;padding:0;margin:0}
-        a{color:inherit;text-decoration:none}
-        .grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-        article{border:1px solid #e6e6e6;padding:.75rem;border-radius:6px}
-        footer{font-size:.9rem;background:#f8f8f8}
+:root{
+        --bg:#0b1220;
+        --surface:#0f1b2a;
+        --muted:#98a2b3;
+        --glass:rgba(255,255,255,0.03);
+        --glass-border:rgba(255,255,255,0.06);
+        --accent-cs:#9dbf67; /* CSGO olive */
+        --accent-fc:#1ea0ff; /* FC26 blue */
+        --accent-nba:#b66cff; /* NBA purple */
+        --card-radius:12px;
+        --container-gap:1rem;
+        --max-width:1100px;
+}
+
+/* Reset / base */
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{
+        font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+        background:linear-gradient(180deg,var(--bg) 0%, #07101a 100%);
+        color:#e6eef6;
+        line-height:1.45;
+        -webkit-font-smoothing:antialiased;
+}
+
+/* Layout containers */
+header,nav,main,section,footer{padding:1rem;max-width:var(--max-width);margin:0 auto}
+.container{padding:0 1rem}
+
+/* Header */
+.site-header{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.logo{display:flex;flex-direction:column}
+.logo h1{margin:0;font-size:1.25rem;letter-spacing:0.6px}
+.logo p{margin:0;font-size:.9rem;color:var(--muted)}
+
+/* Navigation */
+.main-nav ul{display:flex;gap:.75rem;list-style:none;padding:0;margin:0}
+.main-nav a{display:inline-block;padding:.5rem .75rem;border-radius:8px;color:var(--muted)}
+.main-nav a:hover{background:var(--glass);color:#fff}
+
+/* Utility */
+.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+.skip-link:focus{position:static;width:auto;height:auto;margin-bottom:1rem}
+
+/* Grid */
+.grid{display:grid;gap:var(--container-gap);grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+
+/* Cards */
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:var(--card-radius);padding:1rem;border:1px solid var(--glass-border)}
+.card h3{margin:.25rem 0;font-size:1.05rem}
+.card p{margin:.45rem 0;color:var(--muted)}
+.card a{color:var(--muted);font-weight:600}
+
+/* Scores section (thematic badges) */
+.scores{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.75rem}
+.score-card{padding:1rem;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid var(--glass-border);display:flex;flex-direction:column;align-items:flex-start;gap:.25rem}
+.score-card .game{font-weight:700}
+.score-card .score{font-size:1.15rem}
+.score-badge{display:inline-block;padding:.25rem .5rem;border-radius:999px;font-weight:700}
+.score-badge.cs{background:linear-gradient(90deg,var(--accent-cs),#6e8f3a);color:#061016}
+.score-badge.fc{background:linear-gradient(90deg,var(--accent-fc),#0b78d1);color:#061016}
+.score-badge.nba{background:linear-gradient(90deg,var(--accent-nba),#8b49ff);color:#061016}
+
+/* Reviews */
+.reviews .review{display:flex;flex-direction:column;gap:.35rem}
+.reviews .score-strong{color:var(--accent-nba);font-weight:800}
+
+/* Buttons with game-themed variants */
+.btn{display:inline-block;padding:.45rem .75rem;border-radius:8px;cursor:pointer;border:1px solid transparent;font-weight:700}
+.btn--cs{background:transparent;color:var(--accent-cs);border-color:rgba(157,191,103,0.15)}
+.btn--fc{background:transparent;color:var(--accent-fc);border-color:rgba(30,160,255,0.12)}
+.btn--nba{background:transparent;color:var(--accent-nba);border-color:rgba(182,108,255,0.12)}
+.btn:hover{transform:translateY(-2px)}
+
+/* Footer */
+footer{font-size:.9rem;background:transparent;color:var(--muted);padding-top:1.5rem}
+
+/* Responsive tweaks */
+@media (max-width:640px){
+        .site-header{flex-direction:column;align-items:flex-start}
+        .main-nav ul{flex-wrap:wrap}
+}
+
+/* Accessibility helpers */
+.visually-hidden{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+
+/* Make existing article class use card styles */
+article{border:0;padding:0}
+article > *{margin:0}
+.grid article{padding:0}
+.grid article .card, .grid article .score-card{width:100%}
