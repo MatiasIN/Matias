@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Videojuegos de Deportes</title>
+    <meta name="description" content="Noticias, reseñas y guías sobre videojuegos de deportes: fútbol, baloncesto, carreras y más." />
+    <link rel="stylesheet" href="css/estilo1.css" />
+    <link type="image/x-icon" rel="shortcut icon" href="imagenes/ico.ico" />
+</head>
+<body>
+    <a class="skip-link" href="#main">Saltar al contenido</a>
+
+    <header role="banner">
+        <div>
+            <h1>Videojuegos de Deportes</h1>
+            <p>Todo sobre títulos deportivos: reseñas, novedades y guías.</p>
+        </div>
+
+        <nav role="navigation" aria-label="Navegación principal">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#destacados">Destacados</a></li>
+                <li><a href="#generos">Géneros</a></li>
+                <li><a href="#reseñas">Reseñas</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main" role="main">
+        <section id="destacados" aria-labelledby="h-destacados">
+            <h2 id="h-destacados">Juegos destacados</h2>
+            <div class="grid" aria-hidden="false">
+                <article>
+                    <h3>Fútbol Pro 2026</h3>
+                    <p>Simulación realista con modalidades online y ligas oficiales.</p>
+                    <a href="#">Leer más</a>
+                </article>
+                <article>
+                    <h3>Basket Legends</h3>
+                    <p>Arcade de baloncesto con modos cooperativos y torneos.</p>
+                    <a href="#">Leer más</a>
+                </article>
+            </div>
+        </section>
+
+        <section id="generos" aria-labelledby="h-generos">
+            <h2 id="h-generos">Géneros</h2>
+            <ul>
+                <li>Fútbol</li>
+                <li>Baloncesto</li>
+                <li>Carreras</li>
+                <li>Fórmula 1 / Rally</li>
+                <li>Deportes extremos</li>
+            </ul>
+        </section>
+
+        <section id="reseñas" aria-labelledby="h-reseñas">
+            <h2 id="h-reseñas">Reseñas recientes</h2>
+            <div class="grid">
+                <article>
+                    <h3>Fútbol Pro 2026 — Reseña</h3>
+                    <p>Puntuación: 9/10 — Gran jugabilidad y fidelidad visual.</p>
+                </article>
+                <article>
+                    <h3>Rally Max — Reseña</h3>
+                    <p>Puntuación: 8/10 — Excelentes físicas, modo carrera profundo.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="noticias" aria-labelledby="h-noticias">
+            <h2 id="h-noticias">Noticias</h2>
+            <ul>
+                <li>Actualización de temporada para Fútbol Pro 2026</li>
+                <li>Anunciado nuevo DLC para Basket Legends</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <section id="contacto">
+            <h3>Contacto</h3>
+            <p>Correo: contacto@ejemplo.com</p>
+        </section>
+        <small>© <span id="year"></span> Videojuegos de Deportes</small>
+        <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+    </footer>
+</body>
+</html>
